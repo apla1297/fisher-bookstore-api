@@ -55,6 +55,17 @@ namespace Fisher.Bookstore.Controllers
             booksRepository.UpdateBook(book); 
             return Ok(book); 
         }
+                [HttpDelete("{bookId}")]
+        public IActionResult Delete(int bookId)
+        {
+            if (!booksRepository.BookExists(bookId))
+            {
+                return NotFound(); 
+            }
+
+            booksRepository.DeleteBook(bookId); 
+            return Ok(); 
+        }
         
 
     }
