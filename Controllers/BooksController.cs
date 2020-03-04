@@ -40,7 +40,7 @@ namespace Fisher.Bookstore.Controllers
             return Created($"https://localhost:5001/api/books/{bookId}", book); 
         }
 
-        [HttpPut("{bookId")]
+        [HttpPut("{bookId}")]
         public IActionResult Put(int bookId, [FromBody] Book book)
         {
             if(bookId != book.Id)
