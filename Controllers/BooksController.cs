@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace Fisher.Bookstore.Controllers
 {
 
+
 [ApiController]
 [Route("api/[controller]")]
     public class BooksController : ControllerBase 
@@ -36,6 +37,7 @@ namespace Fisher.Bookstore.Controllers
         [HttpPost]
         public IActionResult Post([FromBody]Book book)
         {
+
             var bookId = booksRepository.AddBook(book); 
             return Created($"https://localhost:5001/api/books/{bookId}", book); 
         }
@@ -68,5 +70,8 @@ namespace Fisher.Bookstore.Controllers
         }
         
 
+            booksRepository.DeleteBook(bookId);
+            return Ok();
+        }
     }
 }
